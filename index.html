@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MediTera | Manajemen Informasi Kesehatan & ICD-10</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon-wrapper">
+                        <img src="assets/img/logo.png" alt="Logo MediTera" class="logo-icon">
+                    </div>
+                    <span class="logo-text">MediTera</span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="#home" class="nav-link active">Beranda</a>
+                    <a href="#about" class="nav-link">Tentang</a>
+                    <a href="#services" class="nav-link">Layanan</a>
+                    <a href="#gallery" class="nav-link">Galeri</a>
+                    <a href="#testimonials" class="nav-link">Testimoni</a>
+                    <a href="#contact" class="nav-link">Kontak</a>
+
+                </nav>
+
+                <button id="menu-button" class="menu-button">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="hidden">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu hidden">
+                <nav class="nav-mobile">
+                    <a href="#home" class="nav-link-mobile">Beranda</a>
+                    <a href="#about" class="nav-link-mobile">Tentang</a>
+                    <a href="#services" class="nav-link-mobile">Layanan</a>
+                    <a href="#gallery" class="nav-link-mobile">Galeri</a>
+                    <a href="#testimonials" class="nav-link-mobile">Testimoni</a>
+                    <a href="#contact" class="nav-link-mobile">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section hero-section">
+            <div class="container grid-2-col items-center">
+                <div>
+                    <h1 class="hero-title">
+                        Manajemen Informasi<br>
+                        <span class="text-blue-600">Kesehatan & ICD-10</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        <b>Platform spesialis dalam manajemen informasi kesehatan, klasifikasi ICD-10,
+                        dan pengelolaan rekam medis pasien sesuai standar internasional.</b>
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#service" class="btn btn-primary">Lihat Layanan Kami</a>
+                        <a href="https://wa.me/62123-456-789" target="_blank" class="btn btn-secondary">Hubungi Kami</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="assets/img/lab 2.webp" alt="Health Information Management" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tentang MediTera</h2>
+                    <p class="section-subtitle">
+                        Platform spesialis untuk mendukung tenaga kesehatan dan institusi pelayanan kesehatan.
+                    </p>
+                </div>
+                <div class="grid-2-col items-center">
+                    <div>
+                        <img src="assets/img/sec 2.webp" alt="About Us" class="rounded-image">
+                    </div>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon bg-blue-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-blue-600">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="feature-title">Standar Internasional</h3>
+                                <p class="feature-description">Materi mengikuti standar ICD-10 dan best practices dalam
+                                    manajemen informasi kesehatan.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon bg-green-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-green-600">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="feature-title">Sistem Terintegrasi</h3>
+                                <p class="feature-description">Solusi terintegrasi dengan sistem rekam medis elektronik
+                                    dan sistem informasi rumah sakit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Layanan Kami</h2>
+                    <p class="section-subtitle">Layanan spesialis dalam manajemen informasi kesehatan, klasifikasi
+                        ICD-10, dan sistem rekam medis.</p>
+                </div>
+                <div class="grid-4-col">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-journal-richtext"></i>
+                        </div>
+                        <h3 class="service-title">Manajemen Informasi</h3>
+                        <p class="service-description">Strategi untuk mengelola informasi kesehatan secara efektif dan
+                            efisien.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-card-checklist"></i>
+                        </div>
+                        <h3 class="service-title">ICD-10</h3>
+                        <p class="service-description">Panduan lengkap tentang klasifikasi penyakit menurut standar
+                            internasional.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-file-earmark-medical"></i>
+                        </div>
+                        <h3 class="service-title">Rekam Medis</h3>
+                        <p class="service-description">Manajemen rekam medis pasien sesuai standar kesehatan.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h3 class="service-title">Pelatihan Profesional</h3>
+                        <p class="service-description">Program pelatihan untuk tenaga kesehatan dalam pengelolaan
+                            informasi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="tips" class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Materi dan Tips Terbaru</h2>
+                    <p class="section-subtitle">
+                        Artikel dan materi terbaru tentang manajemen informasi kesehatan, ICD-10, dan rekam medis
+                        pasien.
+                    </p>
+                </div>
+                <div class="grid-2-col">
+                    <div class="material-card material-card-blue">
+                        <div class="material-card-header">
+                            <img src="assets/img/icd.webp" alt="ICD-10 Dasar">
+                        </div>
+                        <div class="material-card-body">
+                            <span class="material-category">ICD 10</span>
+                            <h3>Panduan ICD-10 untuk Pemula</h3>
+                            <p>Pelajari dasar-dasar klasifikasi penyakit menurut International Classification of
+                                Diseases (ICD-10) yang digunakan secara internasional.</p>
+                            <a href="paduan icd 10.html" class="material-read-more"> Baca Selengkapnya <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg> </a>
+                        </div>
+                    </div>
+
+
+                    <div class="material-card material-card-orange">
+                        <div class="material-card-header">
+                            <img src="assets/img/data.webp" alt="ICD-10 Dasar">
+                        </div>
+                        <div class="material-card-body">
+                            <span class="material-category">Rekam Medis</span>
+                            <h3>Manajemen Rekam Medis Digital</h3>
+                            <p>Strategi efektif dalam mengelola dan menyimpan rekam medis pasien secara digital dengan
+                                keamanan yang terjamin.</p>
+                            <a href="manajement rekap medis.html" class="material-read-more">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="material-card material-card-purple">
+                        <div class="material-card-header">
+                            <img src="assets/img/lab 2.webp" alt="ICD-10 Dasar">
+                        </div>
+                        <div class="material-card-body">
+                            <span class="material-category">Manajemen Informasi</span>
+                            <h3>Sistem Informasi Kesehatan</h3>
+                            <p>Pengelolaan data kesehatan secara sistematis untuk mendukung pengambilan keputusan klinis
+                                dan manajerial.</p>
+                            <a href="sistem informasi.html" class="material-read-more">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="material-card material-card-green">
+                        <div class="material-card-header">
+                            <img src="assets/img/orthopedics-4.webp" alt="ICD-10 Dasar">
+                        </div>
+                        <div class="material-card-body">
+                            <span class="material-category">Manajemen Informasi</span>
+                            <h3>Keamanan Data Medis</h3>
+                            <p>Protokol keamanan yang harus diterapkan dalam pengelolaan informasi kesehatan sensitif
+                                dan privasi pasien.</p>
+                            <a href="keamanan data medis.html" class="material-read-more">
+                                Baca Selengkapnya
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="section bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Galeri Manajemen Informasi</h2>
+                    <p class="section-subtitle">Visualisasi sistem, penggunaan ICD-10, dan pengelolaan rekam medis
+                        pasien.</p>
+                </div>
+                <div class="grid-3-col">
+                    <div class="gallery-item">
+                        <img src="assets/img/lab 2.webp" alt="Sistem Informasi">
+                        <div class="gallery-overlay">
+                            <h3>Sistem Informasi Kesehatan</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/img/data.webp" alt="Rekam Medis">
+                        <div class="gallery-overlay">
+                            <h3>Rekam Medis Digital</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/img/icd.webp" alt="ICD-10">
+                        <div class="gallery-overlay">
+                            <h3>Klasifikasi ICD-10</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Apa Kata Mereka</h2>
+                    <p class="section-subtitle">Pendapat profesional kesehatan tentang layanan dan materi kami.</p>
+                </div>
+                <div class="grid-3-col">
+                    <div class="testimonial-card">
+                        <p class="testimonial-comment">"Materi dari MediTera sangat membantu meningkatkan kompetensi
+                            staf dalam manajemen informasi kesehatan."</p>
+                        <div class="testimonial-author">
+                            <h4>Dr. Andi Prasetyo</h4>
+                            <p>Kepala Instalasi Rekam Medis</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-comment">"Pelatihan ICD-10 yang disediakan sangat praktis dan mudah
+                            dipahami. Rekomendasi untuk semua tenaga kesehatan."</p>
+                        <div class="testimonial-author">
+                            <h4>Sri Wahyuni</h4>
+                            <p>Perawat Kepala</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-comment">"Sistem informasi kesehatan yang disajikan sangat membantu dalam
+                            pengembangan sistem di rumah sakit kami."</p>
+                        <div class="testimonial-author">
+                            <h4>Budi Santoso</h4>
+                            <p>IT Kesehatan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header" style="text-align: center;">
+                    <h2 class="section-title">Hubungi Kami</h2>
+                    <p class="section-subtitle"><h3>Butuh konsultasi atau pelatihan? Kami siap membantu Anda.</p></h3>
+
+                    <a href="kontak.html" class="btn-kontak">
+                        Hubungi Sekarang <i class="bi bi-arrow-right-short"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/img/logo.png" alt="MediTera Logo" width="50" />
+                <h2>MediTera</h2>
+                <p>Platform spesialis manajemen informasi kesehatan, ICD-10, dan rekam medis pasien.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Layanan</h3>
+                <ul>
+                    <li><a href="manajement rekap medis.html">Manajemen Informasi</a></li>
+                    <li><a href="paduan icd 10.html">ICD-10</a></li>
+                    <li><a href="manajement rekap medis.html">Keamanan Data Medis</a></li>
+                    <li><a href="#">Informasi Kesehatan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Perusahaan</h3>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#services">layanan</a></li>
+                    <li><a href="#tips">Tips</a></li>
+                    <li><a href="https://wa.me/62123-456-789">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Standar Kesehatan</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            © 2024 MediTera. All rights reserved. Informasi ini untuk keperluan pendidikan dan profesional kesehatan.
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Kesehatan - MediTera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+        }
+
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* =================================================================
+   CSS UNTUK HERO SECTION (BACKGROUND + GRADASI)
+   ================================================================= */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 8rem;
+    padding-bottom: 0;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('assets/img/background v2.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
+    z-index: -1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 6rem;
+}
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin: 2rem 0 1rem 0;
+            color: #1e293b;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+            color: #334155;
+        }
+
+        .article-content p {
+            margin: 1rem 0;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        .article-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        .article-content ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .article-content ol li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #ccfbf1 100%);
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .architecture-diagram {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .architecture-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .step {
+            text-align: center;
+            margin: 1rem;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        .arrow {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .arrow {
+                display: block;
+                font-size: 1.5rem;
+                color: #2563eb;
+                margin: 0 1rem;
+            }
+        }
+
+        /* =================================================================
+   CSS UNTUK ARTIKEL TERKAIT (BACKGROUND + GRADASI BARU)
+   ================================================================= */
+        #related-articles {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            background: transparent !important;
+            padding-bottom: 0;
+            /* Hapus padding bawah asli */
+        }
+
+        #related-articles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            /* Posisikan paling belakang */
+
+            /* Ganti dengan path gambar background Anda */
+            background-image: url('assets/img/background\ v2.png');
+
+            background-size: cover;
+            background-position: center;
+
+            /* Atur tingkat transparansi di sini */
+            opacity: 0.3;
+        }
+
+        /* KODE BARU: Lapisan untuk Efek Gradasi di Bawah */
+        #related-articles::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            /* Atur tinggi area gradasi */
+
+            /* Gradasi dari warna solid (bawah) ke transparan (atas) */
+            /* Warna #f8fafc adalah warna utama background body Anda */
+            background: linear-gradient(to top, #feffff, rgba(248, 250, 252, 0));
+            z-index: -1;
+        }
+
+        /* Pindahkan padding bawah ke container di dalamnya */
+        #related-articles .max-w-7xl {
+            padding-bottom: 4rem;
+            /* Atur jarak konten dari bawah */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center overflow-hidden">
+                        <img src="assets/img/logo.png" alt="Logo MediTera" class="w-[90px] h-[90px] object-contain">
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">
+                        MediTera
+                    </span>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html"
+                        class="nav-link capitalize font-medium text-gray-700 hover:text-blue-600">Beranda</a>
+                    <a href="index.html#about"
+                        class="nav-link capitalize font-medium text-gray-700 hover:text-blue-600">Tentang</a>
+                    <a href="index.html#services"
+                        class="nav-link capitalize font-medium text-gray-700 hover:text-blue-600">Layanan</a>
+                    <a href="index.html#gallery"
+                        class="nav-link capitalize font-medium text-gray-700 hover:text-blue-600">Galeri</a>
+                    <a href="index.html#contact"
+                        class="nav-link capitalize font-medium text-gray-700 hover:text-blue-600">Kontak</a>
+                </nav>
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="md:hidden py-4 border-t hidden">
+                <nav class="flex flex-col space-y-4">
+                    <a href="../index.html" class="text-left capitalize font-medium text-gray-700 hover:text-blue-600"
+                        onclick="closeMobileMenu()">Beranda</a>
+                    <a href="#introduction" class="text-left capitalize font-medium text-gray-700 hover:text-blue-600"
+                        onclick="closeMobileMenu()">Tentang</a>
+                    <a href="#digital" class="text-left capitalize font-medium text-gray-700 hover:text-blue-600"
+                        onclick="closeMobileMenu()">Layanan</a>
+                    <a href="#benefits" class="text-left capitalize font-medium text-gray-700 hover:text-blue-600"
+                        onclick="closeMobileMenu()">Galeri</a>
+                    <a href="#implementation" class="text-left capitalize font-medium text-gray-700 hover:text-blue-600"
+                        onclick="closeMobileMenu()">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section section">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 text-sm font-medium rounded-full mb-6">
+                Sistem Informasi
+            </span>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Sistem Informasi
+                <span class="block gradient-text">
+                    Kesehatan
+                </span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                Pengelolaan data kesehatan secara sistematis untuk mendukung pengambilan keputusan klinis
+                dan manajerial dalam pelayanan kesehatan.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('introduction')" class="gradient-bg text-white px-8 py-4 btn">
+                    Mulai Belajar
+                </button>
+                <button onclick="scrollToSection('architecture')"
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-4 btn">
+                    Arsitektur Sistem
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="section bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="article-content bg-white rounded-2xl shadow-lg p-8">
+                <!-- Introduction -->
+                <div id="introduction">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Pengantar Sistem Informasi Kesehatan</h2>
+                    <p>
+                        Sistem Informasi Kesehatan (Health Information System/HIS) adalah sistem komprehensif yang
+                        digunakan untuk mengumpulkan, menyimpan, mengelola, dan menyebarkan informasi kesehatan yang
+                        relevan untuk pengambilan keputusan dalam pelayanan kesehatan. Sistem ini mengintegrasikan
+                        berbagai komponen teknologi informasi untuk mendukung efisiensi dan efektivitas pelayanan
+                        kesehatan.
+                    </p>
+
+                    <div class="highlight-box">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">
+                            <i class="fas fa-lightbulb mr-2"></i>
+                            Definisi dan Tujuan
+                        </h3>
+                        <p>
+                            Menurut WHO, Sistem Informasi Kesehatan adalah sistem yang terdiri dari orang, teknologi,
+                            dan prosedur yang digunakan untuk mengumpulkan, menyimpan, mengelola, dan menyebarkan
+                            informasi kesehatan. Tujuan utamanya adalah meningkatkan kualitas pelayanan kesehatan,
+                            efisiensi operasional, dan pengambilan keputusan berbasis data.
+                        </p>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Lingkup Sistem Informasi Kesehatan</h3>
+                    <p>
+                        HIS mencakup berbagai aspek dalam sistem kesehatan:
+                    </p>
+
+                    <ul class="list-disc pl-8 mt-4 space-y-2">
+                        <li><strong>Pelayanan Klinis</strong>: Rekam medis, diagnosis, pengobatan</li>
+                        <li><strong>Manajemen Administrasi</strong>: Pendaftaran, penjadwalan, billing</li>
+                        <li><strong>Manajemen Sumber Daya</strong>: Tenaga kesehatan, peralatan, obat</li>
+                        <li><strong>Manajemen Keuangan</strong>: Pembayaran, asuransi, biaya pelayanan</li>
+                        <li><strong>Manajemen Kualitas</strong>: Indikator kualitas, audit medis</li>
+                        <li><strong>Manajemen Rujukan</strong>: Koordinasi pelayanan antar institusi</li>
+                    </ul>
+                </div>
+
+                <!-- Components -->
+                <div id="components">
+                    <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Komponen Utama Sistem Informasi Kesehatan
+                    </h2>
+                    <p>
+                        Sistem Informasi Kesehatan terdiri dari beberapa komponen penting yang saling terintegrasi:
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Database</h3>
+                            <p class="text-gray-600 text-sm">Penyimpanan data kesehatan yang terstruktur dan aman</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Server</h3>
+                            <p class="text-gray-600 text-sm">Infrastruktur teknologi untuk menjalankan sistem</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">User Interface</h3>
+                            <p class="text-gray-600 text-sm">Antarmuka untuk interaksi pengguna dengan sistem</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Jaringan</h3>
+                            <p class="text-gray-600 text-sm">Koneksi antar komponen sistem</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Modul Sistem Informasi Kesehatan</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Modul</th>
+                                    <th>Fungsi Utama</th>
+                                    <th>Manfaat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rekam Medis Elektronik (EMR)</td>
+                                    <td>Dokumentasi klinis pasien</td>
+                                    <td>Penyimpanan data medis digital</td>
+                                </tr>
+                                <tr>
+                                    <td>Pendaftaran Pasien</td>
+                                    <td>Pencatatan data identitas pasien</td>
+                                    <td>Identifikasi pasien yang akurat</td>
+                                </tr>
+                                <tr>
+                                    <td>Administrasi Medis</td>
+                                    <td>Manajemen pelayanan medis</td>
+                                    <td>Efisiensi proses pelayanan</td>
+                                </tr>
+                                <tr>
+                                    <td>Laboratorium</td>
+                                    <td>Manajemen pemeriksaan laboratorium</td>
+                                    <td>Integrasi hasil laboratorium</td>
+                                </tr>
+                                <tr>
+                                    <td>Radiologi</td>
+                                    <td>Manajemen pemeriksaan radiologi</td>
+                                    <td>Integrasi hasil pencitraan</td>
+                                </tr>
+                                <tr>
+                                    <td>Farmasi</td>
+                                    <td>Manajemen obat dan resep</td>
+                                    <td>Keamanan penggunaan obat</td>
+                                </tr>
+                                <tr>
+                                    <td>Keuangan</td>
+                                    <td>Manajemen biaya dan pembayaran</td>
+                                    <td>Transparansi keuangan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Architecture -->
+                <div id="architecture">
+                    <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Arsitektur Sistem Informasi Kesehatan</h2>
+                    <p>
+                        Arsitektur HIS dirancang untuk mendukung skalabilitas, keamanan, dan interoperabilitas:
+                    </p>
+
+                    <div class="architecture-diagram">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Arsitektur Multi-Tier HIS</h3>
+                        <div class="architecture-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h4 class="font-semibold text-gray-700">Presentation Layer</h4>
+                                <p class="text-sm text-gray-600">Antarmuka pengguna</p>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h4 class="font-semibold text-gray-700">Application Layer</h4>
+                                <p class="text-sm text-gray-600">Logika bisnis</p>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h4 class="font-semibold text-gray-700">Data Layer</h4>
+                                <p class="text-sm text-gray-600">Penyimpanan data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Standar dan Protokol</h3>
+                    <p>
+                        HIS harus mengikuti standar dan protokol internasional untuk interoperabilitas:
+                    </p>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Standar</th>
+                                    <th>Deskripsi</th>
+                                    <th>Penggunaan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HL7 (Health Level Seven)</td>
+                                    <td>Standar pertukaran data kesehatan</td>
+                                    <td>Integrasi sistem kesehatan</td>
+                                </tr>
+                                <tr>
+                                    <td>FHIR (Fast Healthcare Interoperability)</td>
+                                    <td>Standar API kesehatan modern</td>
+                                    <td>Integrasi aplikasi kesehatan</td>
+                                </tr>
+                                <tr>
+                                    <td>SNOMED CT</td>
+                                    <td>Terminologi klinis standar</td>
+                                    <td>Standarisasi diagnosis</td>
+                                </tr>
+                                <tr>
+                                    <td>ICD-10</td>
+                                    <td>Klasifikasi penyakit internasional</td>
+                                    <td>Klasifikasi diagnosis</td>
+                                </tr>
+                                <tr>
+                                    <td>DICOM</td>
+                                    <td>Standar pencitraan medis</td>
+                                    <td>Integrasi sistem radiologi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">
+                            <i class="fas fa-project-diagram mr-2"></i>
+                            Integrasi Sistem
+                        </h3>
+                        <p>
+                            Integrasi sistem HIS dengan sistem lain seperti Laboratorium Information System (LIS),
+                            Radiology Information System (RIS), dan Pharmacy Information System (PIS) sangat penting
+                            untuk efisiensi pelayanan kesehatan. Integrasi ini memungkinkan pertukaran data real-time
+                            dan mengurangi duplikasi informasi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div id="benefits">
+                    <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Manfaat Sistem Informasi Kesehatan</h2>
+                    <p>
+                        Implementasi HIS memberikan berbagai manfaat signifikan bagi seluruh stakeholder kesehatan:
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Untuk Tenaga Kesehatan</h3>
+                            <p class="text-gray-600 text-sm">Akses cepat informasi pasien, efisiensi waktu kerja</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-injured"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Untuk Pasien</h3>
+                            <p class="text-gray-600 text-sm">Pelayanan lebih cepat, kualitas perawatan meningkat</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Untuk Manajemen</h3>
+                            <p class="text-gray-600 text-sm">Pengambilan keputusan berbasis data</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Untuk Kualitas</h3>
+                            <p class="text-gray-600 text-sm">Pemantauan kualitas pelayanan</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Manfaat Klinis dan Operasional</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Manfaat</th>
+                                    <th>Dampak</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Klinis</td>
+                                    <td>Peningkatan kualitas pelayanan</td>
+                                    <td>Hasil klinis yang lebih baik</td>
+                                </tr>
+                                <tr>
+                                    <td>Operasional</td>
+                                    <td>Efisiensi proses kerja</td>
+                                    <td>Pengurangan biaya operasional</td>
+                                </tr>
+                                <tr>
+                                    <td>Administratif</td>
+                                    <td>Manajemen data yang efektif</td>
+                                    <td>Pengambilan keputusan yang tepat</td>
+                                </tr>
+                                <tr>
+                                    <td>Keamanan</td>
+                                    <td>Perlindungan data pasien</td>
+                                    <td>Kepatuhan terhadap regulasi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box mt-8">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            Indikator Kinerja HIS
+                        </h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>System Availability</strong>: Persentase waktu sistem tersedia</li>
+                            <li><strong>Response Time</strong>: Kecepatan respon sistem</li>
+                            <li><strong>Data Accuracy</strong>: Akurasi data yang disimpan</li>
+                            <li><strong>User Satisfaction</strong>: Kepuasan pengguna sistem</li>
+                            <li><strong>Cost Efficiency</strong>: Efisiensi biaya operasional</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Implementation -->
+                <div id="implementation">
+                    <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Implementasi Sistem Informasi Kesehatan</h2>
+                    <p>
+                        Proses implementasi HIS memerlukan perencanaan matang dan keterlibatan seluruh stakeholder:
+                    </p>
+
+                    <div class="architecture-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4 class="font-semibold text-gray-700">Analisis Kebutuhan</h4>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4 class="font-semibold text-gray-700">Perencanaan Sistem</h4>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4 class="font-semibold text-gray-700">Desain Sistem</h4>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h4 class="font-semibold text-gray-700">Implementasi</h4>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <h4 class="font-semibold text-gray-700">Pengujian</h4>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <h4 class="font-semibold text-gray-700">Pelatihan</h4>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Faktor Kunci Keberhasilan</h3>
+                    <ul class="list-disc pl-8 mt-4 space-y-2">
+                        <li><strong>Dukungan Manajemen</strong>: Komitmen dari pimpinan institusi</li>
+                        <li><strong>Partisipasi Pengguna</strong>: Keterlibatan aktif tenaga kesehatan</li>
+                        <li><strong>Infrastruktur Teknologi</strong>: Kesiapan perangkat keras dan jaringan</li>
+                        <li><strong>Keamanan Data</strong>: Perlindungan informasi sensitif</li>
+                        <li><strong>Pelatihan dan Dukungan</strong>: Program pelatihan yang komprehensif</li>
+                        <li><strong>Standar dan Regulasi</strong>: Kepatuhan terhadap peraturan kesehatan</li>
+                    </ul>
+                </div>
+
+                <!-- Future Trends -->
+                <div id="trends">
+                    <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Tren Masa Depan HIS</h2>
+                    <p>
+                        Teknologi HIS terus berkembang dengan berbagai inovasi terbaru:
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Artificial Intelligence</h3>
+                            <p class="text-gray-600 text-sm">Diagnosis dan prediksi berbasis AI</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Cloud Computing</h3>
+                            <p class="text-gray-600 text-sm">Penyimpanan dan akses data berbasis cloud</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Mobile Health</h3>
+                            <p class="text-gray-600 text-sm">Akses HIS melalui perangkat mobile</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Robotic Process Automation</h3>
+                            <p class="text-gray-600 text-sm">Otomatisasi proses administrasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Siap Implementasi HIS?</h3>
+                    <p class="text-gray-600 mb-6">
+                        Dapatkan konsultasi dan solusi sistem informasi kesehatan yang sesuai dengan kebutuhan institusi
+                        Anda.
+                    </p>
+                    <button class="gradient-bg text-white px-8 py-4 btn">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        Konsultasi Gratis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles Section -->
+        <section id="related-articles" class="section">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Artikel Terkait
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Temukan lebih banyak informasi tentang manajemen informasi kesehatan
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="card bg-white p-6 shadow-lg">
+                        <img src="assets/img/icd.webp" alt="Panduan ICD-10" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Panduan ICD-10 Untuk Pemula</h3>
+                        <p class="text-gray-600 mb-4">Pelajari dasar-dasar klasifikasi penyakit menurut standar internasional ICD-10.</p>
+                        <a href="paduan icd 10.html" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 flex items-center">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="card bg-white p-6 shadow-lg">
+                        <img src="assets/img/orthopedics-4.webp" alt="Rekam Medis Digital" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Manajemen Rekam Medis Digital</h3>
+                        <p class="text-gray-600 mb-4">Strategi efektif dalam mengelola dan menyimpan rekam medis pasien secara digital.</p>
+                        <a href="manajement rekap medis.html" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 flex items-center">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="card bg-white p-6 shadow-lg">
+                        <img src="assets/img/data.webp" alt="Keamanan Data Medis" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Keamanan Data Medis</h3>
+                        <p class="text-gray-600 mb-4">Protokol keamanan dalam pengelolaan informasi kesehatan sensitif dan privasi pasien.</p>
+                        <a href="keamanan data medis.html" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 flex items-center">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                        </a>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <div>
+                    <img src="assets/img/logo.png" alt="MediTera Logo" class="w-12 mb-4">
+                    <h3 class="text-2xl font-bold mb-2">MediTera</h3>
+                    <p class="text-gray-400 text-sm">
+                        Platform spesialis manajemen informasi kesehatan, ICD-10, dan rekam medis pasien.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Manajemen Informasi</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">ICD-10</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Keamanan Data Medis</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Informasi Kesehatan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Perusahaan</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">Layanan</a></li>
+                        <li><a href="index.html#tips" class="hover:text-white transition-colors">Tips</a></li>
+                        <li><a href="https://wa.me/62123-456-789" target="_blank"
+                                class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Standar Kesehatan</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 MediTera. All rights reserved. Informasi ini untuk keperluan pendidikan dan profesional
+                    kesehatan.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            closeMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                closeMobileMenu();
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.sticky-header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+
+        // Active section highlighting
+        window.addEventListener('scroll', function () {
+            const sections = ['introduction', 'components', 'architecture', 'benefits', 'implementation', 'trends'];
+            const scrollPosition = window.scrollY + 200;
+
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const height = element.offsetHeight;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = document.querySelector(`a[href="#${section}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
