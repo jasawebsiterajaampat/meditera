@@ -250,7 +250,9 @@ body {
 }
 
 .hero-image {
-    width: 600px;
+    /* --- DIPERBAIKI --- */
+    width: 100%;         /* Lebar 100% dari kolomnya */
+    max-width: 600px;  /* Batas lebar maksimal */
     height: 400px;
     object-fit: cover;
     border-radius: 1rem;
@@ -287,7 +289,7 @@ body {
 }
 
 /* =================================================================
-   KODE BARU: CSS UNTUK EFEK GRADASI PEMISAH SECTION
+   EFEK GRADASI PEMISAH SECTION
    ================================================================= */
 .hero-section::after {
     content: '';
@@ -296,9 +298,6 @@ body {
     bottom: 0;
     width: 100%;
     height: 200px; /* Atur tinggi area gradasi */
-    
-    /* Gradasi dari warna solid (di bawah) ke transparan (di atas) */
-    /* Pastikan warna solid sama dengan background section di bawahnya */
     background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
 }
 
@@ -322,9 +321,24 @@ body {
     margin: auto;
 }
 
+/* =================================================================
+   KODE BARU DITAMBAHKAN: Perbaikan Layout Desktop
+   ================================================================= */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk desktop */
+    gap: 3rem; /* Jarak antar kolom */
+}
+
+.items-center {
+    align-items: center; /* Menyejajarkan item di tengah secara vertikal */
+}
+
 /* About Section */
 .rounded-image {
-    width: 600px;
+    /* --- DIPERBAIKI --- */
+    width: 100%;         /* Lebar 100% dari kolomnya */
+    max-width: 600px;  /* Batas lebar maksimal */
     height: 400px;
     object-fit: cover;
     border-radius: 0.75rem;
@@ -393,12 +407,11 @@ body {
 }
 
 /* =================================================================
-   KODE PERBAIKAN TAMPILAN MOBILE (BARU DITAMBAHKAN)
+   KODE PERBAIKAN TAMPILAN MOBILE (YANG SUDAH ADA)
    ================================================================= */
 @media (max-width: 768px) {
 
     /* 1. Perbaikan Layout Grid (Hero & About) */
-    /* Asumsi Anda menggunakan kelas .grid-2-col dari HTML sebelumnya */
     .grid-2-col {
         grid-template-columns: 1fr; /* Paksa jadi 1 kolom */
         text-align: center; /* Pusatkan teks di mobile */
